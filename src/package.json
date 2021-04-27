@@ -1,0 +1,11 @@
+{
+  "name": "programm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ../style/main.scss:../style/style.css"
+  },
+  "author": "",
+  "license": "ISC"
+}

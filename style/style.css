@@ -1,0 +1,49 @@
+.recherche_p {
+  background-color: #343a40;
+  border: 1px solid #343a40;
+  padding: 10px 10px 10px 10px;
+}
+
+.recherche-barr {
+  margin-bottom: auto;
+  margin-top: auto;
+  background-color: #7c828e;
+}
+
+.recherche-input {
+  border: 0;
+  width: 0;
+  line-height: 37px;
+}
+
+.recherche-barr:hover > .recherche-input {
+  padding: 0 10px;
+  width: 450px;
+  transition: width 0.4s linear;
+}
+
+.recherche-icone:hover {
+  color: white;
+}
+
+.recherche-icone {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+
+/* 
+.row{
+	max-width: 95rem;
+}
+.col.text-center{
+	padding-right: 0;
+	max-width: 95rem;
+} */
+
+/*# sourceMappingURL=style.css.map */
