@@ -11,15 +11,20 @@ for (i = 0; i < panier.length; i++) {
         .then(response => response.json())
         .then(data => {
             let myKey = data._id;
+            data.quantity = 1;
             let cacahuete= JSON.parse(localStorage.getItem(myKey))
-            data.quantity =1;
-            // new value
+            localStorage.setItem(myKey, JSON.stringify(data));
 
-            if(localStorage.getItem(myKey) == data._id){
-                cacahuete.quantity = data.quatity + 1;
-                localStorage.setItem(myKey, JSON.stringify(data)); 
-            }else {
-                localStorage.setItem(myKey, JSON.stringify(data));
+            
+            /* SI ma nouvelle valeur est deja présente dans le localstorage 
+            ALORS ajouté +1 a la quantité 
+            SINON je crée cette valeur dans le ls
+             */
+            if(cacahuete.quantity > 0 ){
+                cacahuete.quantity = cacahuete.quantity + 1;
+                localStorage.setItem(myKey, JSON.stringify(cacahuete)); 
+            }else if (cacahuete.quantity == 0 || cacahuete.quantity == null){
+                cacahuete.quantity = 1
             }
         })
     })
