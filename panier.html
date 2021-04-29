@@ -55,14 +55,17 @@
       </div>
     </div>
   </nav>
+<div class="jumbotron text-center">
+  <h3>Voici votre panier !</h3>
+</div>
 
   <table class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Produit</th>
-        <th scope="col">Price</th>
         <th scope="col">Quantité</th>
+        <th scope="col">Prix</th>
       </tr>
     </thead>
     <tbody>
@@ -74,6 +77,13 @@
       </tr>
     </tbody>
   </table>
+
+  <!-- Bouton pour commander -->
+<div class="col" id="buy">
+  <button type="button" class="btn btn-outline-primary btn-rounded buy">Commander</button>
+</div>
+
+
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

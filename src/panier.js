@@ -29,3 +29,4 @@ for (i = 0; i < panier.length; i++) {
         })
     })
 }
+
