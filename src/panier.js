@@ -3,6 +3,7 @@ const panierNuméro = document.querySelector('#numéro');
 const namePanier = document.querySelector('#productNamePanier');
 const pricePanier = document.querySelector('#productPricePanier');
 const quantity = document.querySelector('quantityProductPanier');
+const submitButton = document.querySelector('.buy')
 
 for (i = 0; i < panier.length; i++) {
     panier[i].addEventListener('click', function () {
@@ -31,56 +32,71 @@ for (i = 0; i < panier.length; i++) {
 }
 
 // essaie pour creer du html
-if(localStorage.length == 0){
+if (localStorage.length == 0) {
+    // si il n'y a aucun produit dans le panier
     const empty = document.querySelector('#empty')
     const titleEmpty = document.createElement('h3')
     empty.appendChild(titleEmpty)
     titleEmpty.innerHTML = "Vos produits seront ici"
     empty.classList.add('jumbotron', 'text-center')
-} else{
-for (i = 0; i < localStorage.length; i++) {
-    
-    // ls pour localstorage
-    let mickey = localStorage.key(i);
-    let lsElement = JSON.parse(localStorage.getItem(mickey));
+    submitButton.classList.add('disabled')
+} else {
+    // si il y a des produits dans le panier
+    let totalTab = [];
+    let sum = 0;
+    let total = document.querySelector('#total')
 
-    const table = document.querySelector('table');
-    const tbody = document.createElement('tbody')
-    table.appendChild(tbody)
+    for (i = 0; i < localStorage.length; i++) {
 
-    const tr = document.createElement('tr')
-    tbody.appendChild(tr)
+        // ls veut dire localstorage
+        let myKeys = localStorage.key(i);
+        let lsElement = JSON.parse(localStorage.getItem(myKeys));
 
-    // number
-    const th = document.createElement('th')
-    tr.appendChild(th)
-    th.setAttribute("id", "numero")
-    th.innerHTML = i + 1
+        const table = document.querySelector('table');
+        const tbody = document.createElement('tbody')
+        table.appendChild(tbody)
 
-    // name
-    const tdName = document.createElement('td')
-    tr.appendChild(tdName)
-    tdName.setAttribute('id', 'productNamePanier')
-    tdName.innerHTML = lsElement.name
+        const tr = document.createElement('tr')
+        tbody.appendChild(tr)
 
-    // quantity
-    const tdQuantite = document.createElement('td')
-    tr.appendChild(tdQuantite)
-    tdQuantite.setAttribute('id', 'productQuantityPanier')
-    tdQuantite.innerHTML = lsElement.quantity
+        // number
+        const th = document.createElement('th')
+        tr.appendChild(th)
+        th.setAttribute("id", "numero")
+        th.innerHTML = i + 1
 
-    // price 
-    const tdPrice = document.createElement('td')
-    tr.appendChild(tdPrice)
-    tdPrice.setAttribute('id', 'productPricePanier')
-    tdPrice.innerHTML = lsElement.price * lsElement.quantity + " $"
+        // name
+        const tdName = document.createElement('td')
+        tr.appendChild(tdName)
+        tdName.setAttribute('id', 'productNamePanier')
+        tdName.innerHTML = lsElement.name
 
-    // cancel button
-    const cancelBtn = document.createElement('button')
-    tr.appendChild(cancelBtn)
-    cancelBtn.innerHTML = "supprimer"
-    cancelBtn.addEventListener('click', function(){
-        
-    })
-}
+        // quantity
+        const tdQuantite = document.createElement('td')
+        tr.appendChild(tdQuantite)
+        tdQuantite.setAttribute('id', 'productQuantityPanier')
+        tdQuantite.innerHTML = lsElement.quantity
+
+        // price 
+        const tdPrice = document.createElement('td')
+        tr.appendChild(tdPrice)
+        tdPrice.setAttribute('id', 'productPricePanier')
+        tdPrice.innerHTML = lsElement.price * lsElement.quantity + " $"
+
+        // cancel button
+        const cancelBtn = document.createElement('button')
+        tr.appendChild(cancelBtn)
+        cancelBtn.innerHTML = "Supprimer"
+        cancelBtn.setAttribute('id', lsElement._id)
+        cancelBtn.addEventListener('click', function () {
+
+        })
+
+        // prix total
+        totalTab.push(lsElement.price * lsElement.quantity);
+    }
+    for(i = 0; i < totalTab.length; i++){
+        sum = sum + totalTab[i]
+    }
+    total.innerHTML = `Total : ${sum}`
 }
