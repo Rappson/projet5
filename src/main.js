@@ -33,6 +33,10 @@ fetch(urlBase + "cameras")
             imgLinks[i].setAttribute('id', identifiants);
             imgLinks[i].setAttribute('href', `product.html?id=${identifiants}`)
 
+            let containerArticle = document.querySelector('main-content')
+            let divCard = document.createElement('div')
+            divCard.classList.add('card')
+            containerArticle.appendChild('divCard')
         }
 
 
