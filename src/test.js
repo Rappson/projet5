@@ -1,1 +1,0 @@
-/* lorsque je click sur ajouter au panier je dois enregistrer l'id dans le local storage et afficher l'element selectionner dans le panier  */

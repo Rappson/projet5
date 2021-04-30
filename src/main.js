@@ -33,7 +33,6 @@ fetch(urlBase + "cameras")
             imgLinks[i].setAttribute('id', identifiants);
             imgLinks[i].setAttribute('href', `product.html?id=${identifiants}`)
 
-
         }
 
 
