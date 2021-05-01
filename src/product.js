@@ -30,13 +30,14 @@ if (searchParams.has('id')) {
                 let lenseBtn = document.createElement('a')
                 productLense.appendChild(lenseBtn)
                 lenseBtn.setAttribute('class', 'list-group-item list-group-item-action');
-                lenseBtn.innerHTML = data.lenses[i]
+                lenseBtn.setAttribute('href', '#')
+                lenseBtn.innerHTML = data.lenses[i];
                 // mettre en active la personalisation selectionné
                 lenseBtn.addEventListener('click', function(e){
                     if(lenseBtn.classList.contains('active')){
                         lenseBtn.classList.remove('active')
                     }else{
-                        lenseBtn.classList.add('class', 'active')
+                        lenseBtn.classList.add('active')
                     }
                     
                 })
