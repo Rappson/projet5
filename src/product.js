@@ -5,7 +5,7 @@ const productImg = document.querySelector('#product_img');
 const productTitle = document.querySelector('#name_product');
 const productDescription = document.querySelector('#description_product');
 const productPrice = document.querySelector('#price_content');
-const productLense = document.querySelectorAll('div.lense > a');
+const productLense = document.querySelector('div.lense');
 
 
 // on recupere l'url en entier
@@ -26,15 +26,26 @@ if (searchParams.has('id')) {
             productPrice.innerHTML = data.price + "$";
 
             // incorporation des lentilles
-            for(var i = 0; i < productLense.length; i++){
-                productLense[i].innerHTML = data.lenses[i]
-
+            for(var i = 0; i < data.lenses.length; i++){
+                let lenseBtn = document.createElement('a')
+                productLense.appendChild(lenseBtn)
+                lenseBtn.setAttribute('class', 'list-group-item list-group-item-action');
+                lenseBtn.innerHTML = data.lenses[i]
                 // mettre en active la personalisation selectionné
-                productLense[i].addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // if ();
-                    console.log(this); 
+                lenseBtn.addEventListener('click', function(e){
+                    if(lenseBtn.classList.contains('active')){
+                        lenseBtn.classList.remove('active')
+                    }else{
+                        lenseBtn.classList.add('class', 'active')
+                    }
+                    
                 })
             }
         })
 }
+{/* <div class="list-group lense">
+              <a href="#" class="list-group-item list-group-item-action active">
+                lense 1
+              </a>
+              <a href="#" class="list-group-item list-group-item-action">lense 2</a>
+            </div> */}
