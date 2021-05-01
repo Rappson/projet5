@@ -32,7 +32,7 @@ for (i = 0; i < panier.length; i++) {
 }
 
 // essaie pour creer du html
-if (localStorage.length == 0) {
+if (localStorage.length === 0) {
     // si il n'y a aucun produit dans le panier
     const empty = document.querySelector('#empty')
     const titleEmpty = document.createElement('h3')
@@ -48,7 +48,7 @@ if (localStorage.length == 0) {
 
     for (i = 0; i < localStorage.length; i++) {
 
-        // ls veut dire localstorage
+        // DEFINITION : ls veut dire localstorage
         let myKeys = localStorage.key(i);
         let lsElement = JSON.parse(localStorage.getItem(myKeys));
 
@@ -87,9 +87,15 @@ if (localStorage.length == 0) {
         const cancelBtn = document.createElement('button')
         tr.appendChild(cancelBtn)
         cancelBtn.innerHTML = "Supprimer"
-        cancelBtn.setAttribute('id', lsElement._id)
+        cancelBtn.setAttribute('data-id', lsElement._id)
         cancelBtn.addEventListener('click', function () {
-
+            let remove = cancelBtn.dataset.id;
+            localStorage.removeItem(remove)
+            let head = document.querySelector('head')
+            let autoRefresh = document.createElement("meta")
+            head.appendChild(autoRefresh)
+            autoRefresh.setAttribute('http-equiv', 'refresh')
+            autoRefresh.setAttribute('content', '1; url=panier.html')
         })
 
         // prix total
