@@ -41,7 +41,7 @@ divCol.classList.add('col')
             const divCard = document.createElement('div')
             divCol.appendChild(divCard)
             divCard.classList.add('card')
-            divCard.innerHTML = `<div class="card">
+            divCard.innerHTML = `
             <a href="product.html?id=${identifiants}"> <img src="${domImg}" alt="" class="card-img-top img-article"></a>
             <div class="card-body">
               <h5 class="card-title" id="article-title">${domName}</h5>
@@ -49,7 +49,7 @@ divCol.classList.add('col')
               <p class="card-text">$ <span id="price">${domPrice}</span></p>
               <a href="product.html?id=${identifiants}"<button type="button" class="btn btn-outline-primary btn-rounded">En savoir plus</button></a>
             </div>
-            </div>`
+            `
         }
 
 

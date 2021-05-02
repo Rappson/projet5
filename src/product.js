@@ -44,9 +44,3 @@ if (searchParams.has('id')) {
             }
         })
 }
-{/* <div class="list-group lense">
-              <a href="#" class="list-group-item list-group-item-action active">
-                lense 1
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">lense 2</a>
-            </div> */}
