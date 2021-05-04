@@ -3,7 +3,8 @@ const panierNuméro = document.querySelector('#numéro');
 const namePanier = document.querySelector('#productNamePanier');
 const pricePanier = document.querySelector('#productPricePanier');
 const quantity = document.querySelector('quantityProductPanier');
-const submitButton = document.querySelector('.buy')
+// Pour le button de commande
+const submitButton = document.querySelector('.buy');
 
 for (i = 0; i < panier.length; i++) {
     panier[i].addEventListener('click', function () {
@@ -17,21 +18,17 @@ for (i = 0; i < panier.length; i++) {
                 localStorage.setItem(myKey, JSON.stringify(data));
 
 
-                /* SI ma nouvelle valeur est deja présente dans le localstorage 
-                ALORS ajouté +1 a la quantité 
-                SINON je crée cette valeur dans le ls
-                 */
                 if (cacahuete.quantity > 0) {
                     cacahuete.quantity = cacahuete.quantity + 1;
                     localStorage.setItem(myKey, JSON.stringify(cacahuete));
                 } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
-                    cacahuete.quantity = 1
+                    cacahuete.quantity = 1;
                 }
             })
     })
 }
 
-// essaie pour creer du html
+// mise en place de l'affichage des produits dans le panier
 if (localStorage.length === 0) {
     // si il n'y a aucun produit dans le panier
     const empty = document.querySelector('#empty')
@@ -40,6 +37,9 @@ if (localStorage.length === 0) {
     titleEmpty.innerHTML = "Vos produits seront ici"
     empty.classList.add('jumbotron', 'text-center')
     submitButton.classList.add('disabled')
+    submitButton.addEventListener('click', function(e){
+        e.preventDefault();
+    });
 } else {
     // si il y a des produits dans le panier
     let totalTab = [];
@@ -104,5 +104,5 @@ if (localStorage.length === 0) {
     for(i = 0; i < totalTab.length; i++){
         sum = sum + totalTab[i]
     }
-    total.innerHTML = `Total : ${sum}`
+    total.innerHTML = `Total : ${sum} $`
 }

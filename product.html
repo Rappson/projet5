@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
   <link rel="stylesheet" href="./style/style.css">
-    <title>Orinoco Produit</title>
+  <title>Orinoco Produit</title>
 </head>
+
 <body>
-    <!-- nav -->
+  <!-- nav -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand h1" href="index.html">Orinoco</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -53,23 +55,26 @@
       </div>
     </div>
   </nav>
-  
-    
-<div class="row">
+
+  <!-- produit -->
+  <div class="row">
     <div class="container">
-        <div class="col">
-            <img src="" alt="" id="product_img" width="70%">
-            <h1 id="name_product">name</h1>
-            <p id="description_product">description</p>
-            <p id="price_content"><span id="price_product">price</span></p>
-            <div class="list-group lense">
-              
-            </div>
-            <button type="button" class="btn btn-outline-primary btn-rounded add-to-panier">Ajouter au panier</button>
-            
+      <div class="col">
+        <!-- img -->
+        <img src="" alt="" id="product_img" width="70%">
+        <!-- infos -->
+        <h1 id="name_product">name</h1>
+        <p id="description_product">description</p>
+        <p id="price_content"><span id="price_product">price</span></p>
+        <!-- lenses -->
+        <div class="list-group lense" required>
+
         </div>
+        <button type="submit" class="btn btn-outline-primary btn-rounded add-to-panier">Ajouter au panier</button>
+
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -82,9 +87,11 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 
-    <!-- scripts -->
-    <script src="src/main.js"></script>
-    <script src="src/product.js"></script>
-    <script src="src/panier.js"></script>
-  </body>
+  <!-- SCRIPT JS -->
+  <script src="src/main.js"></script>
+  <script src="src/product.js"></script>
+  <script src="src/panier.js"></script>
+  <script src="src/form.js"></script>
+</body>
+
 </html>
