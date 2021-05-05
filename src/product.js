@@ -23,25 +23,29 @@ if (searchParams.has('id')) {
             productImg.setAttribute('src', data.imageUrl);
             productTitle.innerHTML = data.name;
             productDescription.innerHTML = data.description;
-            productPrice.innerHTML = data.price + "$";
+            productPrice.innerHTML = data.price + " $";
 
             // incorporation des lentilles
-            for(var i = 0; i < data.lenses.length; i++){
+            for (var i = 0; i < data.lenses.length; i++) {
+                // création des liens de personnalisation
                 let lenseBtn = document.createElement('a')
                 productLense.appendChild(lenseBtn)
                 lenseBtn.setAttribute('class', 'list-group-item list-group-item-action');
                 lenseBtn.setAttribute('href', '#')
                 lenseBtn.setAttribute('required', 'true')
                 lenseBtn.innerHTML = data.lenses[i];
+                
+
+
                 // mettre en active la personalisation selectionné
-                lenseBtn.addEventListener('click', function(e){
+                lenseBtn.addEventListener('click', function (e) {
                     e.preventDefault()
-                    if(lenseBtn.classList.contains('active')){
+                    if (lenseBtn.classList.contains('active')) {
                         lenseBtn.classList.remove('active')
-                    }else{
-                        lenseBtn.classList.add('active')
+                    } else {
+                        lenseBtn.classList.add('active', 'active-user-choose')
                     }
-                    
+
                 })
             }
         })

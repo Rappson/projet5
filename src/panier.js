@@ -6,6 +6,7 @@ const quantity = document.querySelector('quantityProductPanier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
 
+
 for (i = 0; i < panier.length; i++) {
     panier[i].addEventListener('click', function () {
 
@@ -17,13 +18,18 @@ for (i = 0; i < panier.length; i++) {
                 let cacahuete = JSON.parse(localStorage.getItem(myKey))
                 localStorage.setItem(myKey, JSON.stringify(data));
 
+                const lenseTest = document.querySelector('.active-user-choose')
+                
+                console.log(localStorage.getItem(mykey));
 
                 if (cacahuete.quantity > 0) {
                     cacahuete.quantity = cacahuete.quantity + 1;
                     localStorage.setItem(myKey, JSON.stringify(cacahuete));
+
                 } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
                     cacahuete.quantity = 1;
                 }
+                
             })
     })
 }
@@ -37,7 +43,7 @@ if (localStorage.length === 0) {
     titleEmpty.innerHTML = "Vos produits seront ici"
     empty.classList.add('jumbotron', 'text-center')
     submitButton.classList.add('disabled')
-    submitButton.addEventListener('click', function(e){
+    submitButton.addEventListener('click', function (e) {
         e.preventDefault();
     });
 } else {
@@ -101,8 +107,9 @@ if (localStorage.length === 0) {
         // prix total
         totalTab.push(lsElement.price * lsElement.quantity);
     }
-    for(i = 0; i < totalTab.length; i++){
+    for (i = 0; i < totalTab.length; i++) {
         sum = sum + totalTab[i]
     }
     total.innerHTML = `Total : ${sum} $`
 }
+
