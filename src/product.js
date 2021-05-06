@@ -32,7 +32,6 @@ if (searchParams.has('id')) {
                 productLense.appendChild(lenseBtn)
                 lenseBtn.setAttribute('class', 'list-group-item list-group-item-action');
                 lenseBtn.setAttribute('href', '#')
-                lenseBtn.setAttribute('required', 'true')
                 lenseBtn.innerHTML = data.lenses[i];
                 
 
@@ -41,11 +40,14 @@ if (searchParams.has('id')) {
                 lenseBtn.addEventListener('click', function (e) {
                     e.preventDefault()
                     if (lenseBtn.classList.contains('active')) {
-                        lenseBtn.classList.remove('active')
+                        lenseBtn.classList.remove('active', 'active-user-choose')
+                        // tabLense.pop(lenseBtn.textContent)
                     } else {
                         lenseBtn.classList.add('active', 'active-user-choose')
+                        // tabLense.push(lenseBtn.textContent)
+                        
                     }
-
+                    
                 })
             }
         })

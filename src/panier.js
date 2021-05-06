@@ -5,6 +5,8 @@ const pricePanier = document.querySelector('#productPricePanier');
 const quantity = document.querySelector('quantityProductPanier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
+// Pour la personalisation dans le panier
+let tabLense = [];
 
 
 for (i = 0; i < panier.length; i++) {
@@ -13,15 +15,24 @@ for (i = 0; i < panier.length; i++) {
         fetch(urlBase + 'cameras/' + getProductId)
             .then(response => response.json())
             .then(data => {
+                const lenseTest = document.querySelector('.active-user-choose')
+
                 let myKey = data._id;
                 data.quantity = 1;
                 let cacahuete = JSON.parse(localStorage.getItem(myKey))
                 localStorage.setItem(myKey, JSON.stringify(data));
 
-                const lenseTest = document.querySelector('.active-user-choose')
-                
-                console.log(localStorage.getItem(mykey));
 
+                // console.log(lenseTest);
+                // console.log(localStorage.getItem(myKey));
+                if (lenseTest == null) {
+                    alert('Aucunes lentilles selectionnées')
+                }else{
+                    console.log(tabLense);
+                    
+                    
+                    cacahuete.lenses = JSON.stringify(tabLense)
+                }
                 if (cacahuete.quantity > 0) {
                     cacahuete.quantity = cacahuete.quantity + 1;
                     localStorage.setItem(myKey, JSON.stringify(cacahuete));
@@ -29,7 +40,7 @@ for (i = 0; i < panier.length; i++) {
                 } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
                     cacahuete.quantity = 1;
                 }
-                
+
             })
     })
 }
