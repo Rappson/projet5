@@ -41,14 +41,18 @@ if (searchParams.has('id')) {
                     e.preventDefault()
                     if (lenseBtn.classList.contains('active')) {
                         lenseBtn.classList.remove('active', 'active-user-choose')
-                        // tabLense.pop(lenseBtn.textContent)
+                        // si il contient la class active je récupere la position de l'element et je la supprime
+                        let positionTab = tabLense.indexOf(lenseBtn.textContent);
+                        console.log(positionTab);
+                        tabLense.pop(positionTab)
                     } else {
                         lenseBtn.classList.add('active', 'active-user-choose')
-                        // tabLense.push(lenseBtn.textContent)
+                        tabLense.push(lenseBtn.textContent)
                         
                     }
-                    
+
                 })
+
             }
         })
 }
