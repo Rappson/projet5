@@ -43,8 +43,7 @@ if (searchParams.has('id')) {
                         lenseBtn.classList.remove('active', 'active-user-choose')
                         // si il contient la class active je récupere la position de l'element et je la supprime
                         let positionTab = tabLense.indexOf(lenseBtn.textContent);
-                        console.log(positionTab);
-                        tabLense.pop(positionTab)
+                        tabLense.splice(positionTab, 1)
                     } else {
                         lenseBtn.classList.add('active', 'active-user-choose')
                         tabLense.push(lenseBtn.textContent)

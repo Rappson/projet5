@@ -27,6 +27,7 @@ for (i = 0; i < panier.length; i++) {
                 // console.log(localStorage.getItem(myKey));
                 if (lenseTest == null) {
                     alert('Aucunes lentilles selectionnées');
+                    localStorage.removeItem(myKey)
                 }else{
                     console.log(tabLense);
                     
