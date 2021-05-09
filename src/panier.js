@@ -5,6 +5,8 @@ const pricePanier = document.querySelector('#productPricePanier');
 const quantity = document.querySelector('quantityProductPanier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
+const submitLink = document.querySelector('#submitBtn')
+
 // Pour la personalisation dans le panier
 let tabLense = [];
 
@@ -54,10 +56,9 @@ if (localStorage.length === 0) {
     empty.appendChild(titleEmpty)
     titleEmpty.innerHTML = "Vos produits seront ici"
     empty.classList.add('jumbotron', 'text-center')
-    submitButton.classList.add('disabled')
-    submitButton.addEventListener('click', function (e) {
-        e.preventDefault();
-    });
+    submitButton.innerHTML = "Retour à la boutique";
+    submitLink.setAttribute('href', 'index.html')
+
 } else {
     // si il y a des produits dans le panier
     let totalTab = [];
@@ -65,8 +66,7 @@ if (localStorage.length === 0) {
     let total = document.querySelector('#total')
 
     // modification du lien de redirection vers le formulaire de contact
-    let submitLink = document.querySelector('#submitBtn')
-    orderLink.setAttribute('href', 'form.html');
+    submitLink.setAttribute('href', 'form.html');
 
 
     for (i = 0; i < localStorage.length; i++) {
