@@ -64,6 +64,11 @@ if (localStorage.length === 0) {
     let sum = 0;
     let total = document.querySelector('#total')
 
+    // modification du lien de redirection vers le formulaire de contact
+    let submitLink = document.querySelector('#submitBtn')
+    orderLink.setAttribute('href', 'form.html');
+
+
     for (i = 0; i < localStorage.length; i++) {
 
         // DEFINITION : ls veut dire localstorage

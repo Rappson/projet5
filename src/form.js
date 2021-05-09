@@ -6,7 +6,12 @@ const userMail = document.querySelector('#inputMail');
 const userTel = document.querySelector('#inputTel');
 const userAdress = document.querySelector('#inputAdress');
 
-orderLink.setAttribute('href', 'form.html');
+
+
+// event pour stocker les infos contact
+userName.addEventListener('input', function(e){
+     console.log(e);
+})
 
 // let contact = {
 //     name:  
