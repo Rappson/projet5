@@ -1,3 +1,7 @@
+
+// export const maVariable = "mes donées";
+
+
 /* function formulaire (){
      let userName = inputName.addEventListener('input', function(e){
           inputName.value

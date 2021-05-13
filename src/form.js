@@ -1,27 +1,29 @@
-const inputName = document.querySelector('#inputName');
-const inputFirstName = document.querySelector('#firstName');
-const inputMail = document.querySelector('#inputMail');
-const inputTel = document.querySelector('#inputTel');
-const inputAddress = document.querySelector('#inputAddress');
-const inputCity = document.querySelector('#inputCity');
-const inputZip = document.querySelector('#inputZip');
 
-// commencement de la function de recuperation de données
-const submitFormBtn = document.querySelector('.btn-primary')
-submitFormBtn.addEventListener('click', function (e) {
+// import maVariable from "test"
+
+// console.log(maVariable);
+
+
+function test (form, e) {
      e.preventDefault()
-     
-     
+     let data = {};
+
      // recuperation des données utilisateur
      let contact = {}
-     contact.name = inputName.value;
-     contact.familyName = inputFirstName.value;
-     contact.address = inputAddress.value;
-     contact.city = inputCity.value + "," + inputZip.value;
-
-     console.log(contact);
-
-})
+     contact.firstName = form.firstName.value;
+     contact.lastName = form.lastName.value;
+     contact.address = form.address.value;
+     contact.city = form.city.value + "," + form.zip.value;
+     contact.email = form.email.value;
 
 
+    data = {
+         contact: contact,
+         products: products // todo à créer
+    }
+
+    // post data fetch 
+     
+     console.log(data);
+}
 
