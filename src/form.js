@@ -11,13 +11,7 @@ const submitFormBtn = document.querySelector('.btn-primary')
 submitFormBtn.addEventListener('click', function (e) {
      e.preventDefault()
      
-     var init = {
-          method: 'POST',
-          header: {
-               'accept':'application/json',
-               'Content-Type': 'application/json'
-          }
-     };
+     
      // recuperation des données utilisateur
      let contact = {}
      contact.name = inputName.value;
