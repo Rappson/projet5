@@ -13,17 +13,25 @@ function test (form, e) {
      contact.firstName = form.firstName.value;
      contact.lastName = form.lastName.value;
      contact.address = form.address.value;
-     contact.city = form.city.value + "," + form.zip.value;
+     contact.city = form.city.value/*  + "," + form.zip.value */;
      contact.email = form.email.value;
 
+     let products = [];
+     for ( let i = 0; i < localStorage.length; i++){
+          products.push(localStorage.key(i))
+     }
 
-    data = {
+    order = {
          contact: contact,
          products: products // todo à créer
     }
-
+    var init = {
+         method: 'post',
+         body: JSON.stringify(order)
+    }
     // post data fetch 
+     fetch(urlBase + "cameras/"+ "order", init)
      
-     console.log(data);
+     console.log(init);
 }
 
