@@ -31,11 +31,22 @@
 	border-radius: 50%;
 	color: white;
 }
-/* 
-.row{
-	max-width: 95rem;
+
+#order-congrat.disabled{
+	display: none;
 }
-.col.text-center{
-	padding-right: 0;
-	max-width: 95rem;
-} */
+
+.congrat-active{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: 43%;
+	bottom: 25rem;
+	width: 15rem;
+	height: 20rem;
+	// color
+	background-color: rgb(0, 174, 255);
+	
+}
