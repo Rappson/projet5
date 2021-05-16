@@ -41,7 +41,9 @@ function form(form, e) {
           let congrat = document.querySelector('#order-congrat')
           if (congrat.classList.contains ("disabled")){
                congrat.classList.replace('disabled', 'congrat-active')
-               let orderIdCongrat = document.createElement('p')
+               let orderIdCongrat = document.createElement('a')
+               orderIdCongrat.classList.add('congrat-content')
+               orderIdCongrat.setAttribute('href', `targetOrder.html?id= ${data.orderId}`)
                congrat.appendChild(orderIdCongrat)
                orderIdCongrat.innerHTML = 'Numéro de commande : ' + data.orderId
           }
@@ -50,3 +52,8 @@ function form(form, e) {
      })
 }
 
+function orderTarget(){
+     fetch(urlBase + 'cameras/'+ 'order/')
+     .then(Response => Response.json())
+     .then(data => console.log(data))
+}

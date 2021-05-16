@@ -34,6 +34,7 @@
 
 #order-congrat.disabled{
 	display: none;
+	
 }
 
 .congrat-active{
@@ -45,9 +46,37 @@
 	padding: 25px;
 	left: 43%;
 	bottom: 25rem;
-	width: 15rem;
-	height: 20rem;
+	// width: 15rem;
+	// height: 20rem;
+	animation: affichage 3s forwards;
 	// color
 	background-color: rgb(0, 174, 255);
-	
+	.congrat-content{
+		opacity: 0;
+		animation: content .5s 3s forwards;
+	}
+}
+@keyframes content {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+@keyframes affichage {
+	0%{
+		width: 0;
+		height: 0;
+		
+	}
+	50%{
+		width: 15rem;
+		height: 0;
+	}
+	100%{
+		width: 15rem;
+		height: 20rem;
+		
+	}
 }

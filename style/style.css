@@ -50,9 +50,35 @@
   padding: 25px;
   left: 43%;
   bottom: 25rem;
-  width: 15rem;
-  height: 20rem;
+  animation: affichage 3s forwards;
   background-color: #00aeff;
+}
+.congrat-active .congrat-content {
+  opacity: 0;
+  animation: content 0.5s 3s forwards;
+}
+
+@keyframes content {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes affichage {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    width: 15rem;
+    height: 0;
+  }
+  100% {
+    width: 15rem;
+    height: 20rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
