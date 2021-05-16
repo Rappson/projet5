@@ -43,7 +43,7 @@ function form(form, e) {
                congrat.classList.replace('disabled', 'congrat-active')
                let orderIdCongrat = document.createElement('a')
                orderIdCongrat.classList.add('congrat-content')
-               orderIdCongrat.setAttribute('href', `targetOrder.html?id= ${data.orderId}`)
+               orderIdCongrat.setAttribute('href', `targetOrder.html?orderId= ${data.orderId}`)
                congrat.appendChild(orderIdCongrat)
                orderIdCongrat.innerHTML = 'Numéro de commande : ' + data.orderId
           }
@@ -52,8 +52,12 @@ function form(form, e) {
      })
 }
 
-function orderTarget(){
-     fetch(urlBase + 'cameras/'+ 'order/')
+     var searchId = new URLSearchParams(window.location.search)
+    if (searchId.has('orderId')){
+     var targetOrderId = searchId.get('orderId')
+     fetch(urlBase + 'cameras/'+ 'order/' + targetOrderId)
      .then(Response => Response.json())
-     .then(data => console.log(data))
-}
+     .then(data =>{
+          console.log(data);
+     })
+    }
