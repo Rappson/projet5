@@ -31,6 +31,7 @@ for (i = 0; i < panier.length; i++) {
                     alert('Aucunes lentilles selectionnées');
                     localStorage.removeItem(myKey)
                 }else{
+                    // cacahuete.lenses = document.querySelectorAll('.active-user-choose').textContent
                     console.log(tabLense);
                     
                     
@@ -74,7 +75,11 @@ if (localStorage.length === 0) {
         // DEFINITION : ls veut dire localstorage
         let myKeys = localStorage.key(i);
         let lsElement = JSON.parse(localStorage.getItem(myKeys));
-
+        let a = 0;
+        if (lsElement){
+            
+        }
+        // affichage du panier
         const table = document.querySelector('table');
         const tbody = document.createElement('tbody')
         table.appendChild(tbody)
