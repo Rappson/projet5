@@ -10,6 +10,19 @@ const submitLink = document.querySelector('#submitBtn')
 // Pour la personalisation dans le panier
 let tabLense = [];
 
+// Tableau pour la condition pour eviter les erreurs dans le panier
+let tabProduct = [];
+
+fetch(urlBase + 'cameras')
+.then(response => response.json())
+.then(data => {
+    // mise dans le tableau des ids des produits
+    for(i = 0; i < data.length; i++){
+    tabProduct.push(data[i]._id)
+}
+})
+
+
 
 for (i = 0; i < panier.length; i++) {
     panier[i].addEventListener('click', function () {
@@ -75,10 +88,14 @@ if (localStorage.length === 0) {
         // DEFINITION : ls veut dire localstorage
         let myKeys = localStorage.key(i);
         let lsElement = JSON.parse(localStorage.getItem(myKeys));
+
+
+
         let a = 0;
-        if (lsElement){
-            
+        if (lsElement != tabProduct[a]){
+            a = a + 1
         }
+        
         // affichage du panier
         const table = document.querySelector('table');
         const tbody = document.createElement('tbody')
@@ -129,6 +146,7 @@ if (localStorage.length === 0) {
         // prix total
         totalTab.push(lsElement.price * lsElement.quantity);
     }
+
     for (i = 0; i < totalTab.length; i++) {
         sum = sum + totalTab[i]
     }

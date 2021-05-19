@@ -9,7 +9,7 @@ const getDescription = document.querySelectorAll("#article-description");
 const getTitle = document.querySelectorAll("#article-title");
 const getImg = document.querySelectorAll(".img-article");
 const imgLinks = document.querySelectorAll("div.card > a");
-let tabProduct = [];
+
 
 fetch(urlBase + "cameras")
     .then(response => response.json())
@@ -28,9 +28,6 @@ fetch(urlBase + "cameras")
 
         // incorporation du prix
         for (let i = 0; i < data.length; i++) {
-
-            // mise en stockage dans un tableau la liste des produits
-            tabProduct.push(data[i]._id);
 
             // mise en place du prix
             const domPrice = data[i].price
@@ -59,7 +56,6 @@ fetch(urlBase + "cameras")
             </div>
             `
         }
-
 
     })
     .catch((e) => {
