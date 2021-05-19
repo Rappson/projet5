@@ -41,3 +41,10 @@
          'Content-Type': 'application/json'
     }
 }; */
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////
+
+// const panierNuméro = document.querySelector('#numéro');
+// const namePanier = document.querySelector('#productNamePanier');
+// const pricePanier = document.querySelector('#productPricePanier');
+// const quantity = document.querySelector('quantityProductPanier');

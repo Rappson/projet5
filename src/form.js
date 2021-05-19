@@ -67,7 +67,7 @@ if (searchId.has('orderId')) {
      let jumbotronId = document.createElement('div')
      orderContent.appendChild(jumbotronId)
      jumbotronId.classList.add('jumbotron')
-     jumbotronId.innerHTML = `Résumé de la commande n°${targetOrderId}`
+     jumbotronId.innerHTML = `Résumé de la commande n° <span class='h3'>${targetOrderId}</span>`
 
      // recuperation des données du ls
      var lsKeyOrder = JSON.parse(localStorage.getItem(targetOrderId))

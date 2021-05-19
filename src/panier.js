@@ -1,8 +1,4 @@
 const panier = document.querySelectorAll('.add-to-panier');
-const panierNuméro = document.querySelector('#numéro');
-const namePanier = document.querySelector('#productNamePanier');
-const pricePanier = document.querySelector('#productPricePanier');
-const quantity = document.querySelector('quantityProductPanier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
 const submitLink = document.querySelector('#submitBtn')
@@ -95,7 +91,7 @@ if (localStorage.length === 0) {
         if (lsElement != tabProduct[a]){
             a = a + 1
         }
-        
+
         // affichage du panier
         const table = document.querySelector('table');
         const tbody = document.createElement('tbody')
