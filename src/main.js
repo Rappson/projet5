@@ -1,16 +1,3 @@
-// https://github.com/OpenClassrooms-Student-Center/JWDP5.git
-
-
-const urlBase = "http://localhost:3000/api/";
-
-// Mes sources index.html
-const getPrice = document.querySelectorAll("#price");
-const getDescription = document.querySelectorAll("#article-description");
-const getTitle = document.querySelectorAll("#article-title");
-const getImg = document.querySelectorAll(".img-article");
-const imgLinks = document.querySelectorAll("div.card > a");
-
-
 fetch(urlBase + "cameras")
     .then(response => response.json())
     .then(data => {
