@@ -10,7 +10,7 @@ const getImg = document.querySelectorAll(".img-article");
 const imgLinks = document.querySelectorAll("div.card > a");
 
 
-// Panier.js
+/////// Panier.js ///////
 const panier = document.querySelectorAll('.add-to-panier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
@@ -23,7 +23,8 @@ let tabLense = [];
 let tabProduct = [];
 
 
-// product.js
+/////// product.js ///////////
+
 // Mes sources product.html
 const productImg = document.querySelector('#product_img');
 const productTitle = document.querySelector('#name_product');
@@ -36,3 +37,4 @@ const productLense = document.querySelector('div.lense');
 const getUrl = window.location
 // on crée un recherche dans l'url pour chercher si il contient un id
 var searchParams = new URLSearchParams(getUrl.search);
+var getProductId = searchParams.get('id');

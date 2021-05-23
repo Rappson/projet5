@@ -8,8 +8,6 @@ fetch(urlBase + 'cameras')
     })
 
 
-
-function productToPanier() {
     for (i = 0; i < panier.length; i++) {
         panier[i].addEventListener('click', function () {
 
@@ -43,13 +41,7 @@ function productToPanier() {
                 })
         })
     }
-}
-productToCart();
 
-
-
-
-function placeOnCart() {
     // mise en place de l'affichage des produits dans le panier
     if (localStorage.length === 0) {
         // si il n'y a aucun produit dans le panier
@@ -140,6 +132,4 @@ function placeOnCart() {
         }
         total.innerHTML = `Total : ${sum} $`
     }
-
-}
 
