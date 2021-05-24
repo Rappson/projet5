@@ -2,20 +2,19 @@ fetch(urlBase + "cameras")
     .then(response => response.json())
     .then(data => {
 
-
-
         // création du contenue des produits
         let container = document.querySelector('div#container-article')
         let divRow = document.createElement('div');
         container.appendChild(divRow)
         divRow.classList.add('row', 'text-center')
+
         let divCol = document.createElement('div')
         divRow.appendChild(divCol)
         divCol.classList.add('col')
 
         // incorporation du prix
         for (let i = 0; i < data.length; i++) {
-
+            
             // mise en place du prix
             const domPrice = data[i].price
 
@@ -44,9 +43,4 @@ fetch(urlBase + "cameras")
             `
         }
 
-    })
-    .catch((e) => {
-        if (TypeError == undefined) {
-            console.error('impossible de charger la valeur');
-        }
     })
