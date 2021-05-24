@@ -1,7 +1,6 @@
 function productFocused() {
     if (searchParams.has('id')) {
-        // récupérer uniquement l'id du produit (sans symbole annonçant le début d'un parametre)
-        
+
         fetch(urlBase + 'cameras/' + getProductId)
             .then(response => response.json())
             .then(data => {
@@ -22,13 +21,11 @@ function productFocused() {
                     lenseBtn.innerHTML = data.lenses[i];
 
 
-
                     // mettre en active la personalisation selectionné
                     lenseBtn.addEventListener('click', function (e) {
                         e.preventDefault()
                         if (lenseBtn.classList.contains('active')) {
                             lenseBtn.classList.remove('active', 'active-user-choose')
-                            // si il contient la class active je récupere la position de l'element et je la supprime
                             let positionTab = tabLense.indexOf(lenseBtn.textContent);
                             tabLense.splice(positionTab, 1)
                         } else {
@@ -36,11 +33,43 @@ function productFocused() {
                             tabLense.push(lenseBtn.textContent)
 
                         }
-
                     })
-
                 }
             })
     }
 }
 productFocused()
+
+
+for (i = 0; i < panier.length; i++) {
+    panier[i].addEventListener('click', function () {
+
+        fetch(urlBase + 'cameras/' + getProductId)
+            .then(response => response.json())
+            .then(data => {
+                const lenseChoose = document.querySelector('.active-user-choose')
+
+                let myKey = data._id;
+                data.quantity = 1;
+                let cacahuete = JSON.parse(localStorage.getItem(myKey))
+                localStorage.setItem(myKey, JSON.stringify(data));
+
+
+                if (lenseChoose == null) {
+                    alert('Aucunes lentilles selectionnées');
+                    localStorage.removeItem(myKey)
+                } else {
+                    cacahuete.lenses = JSON.stringify(tabLense)
+                }
+
+
+                if (cacahuete.quantity > 0) {
+                    cacahuete.quantity = cacahuete.quantity + 1;
+                    localStorage.setItem(myKey, JSON.stringify(cacahuete));
+
+                } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
+                    cacahuete.quantity = 1;
+                }
+            })
+    })
+}

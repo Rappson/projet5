@@ -101,3 +101,50 @@ if (searchId.has('orderId')) {
      })
     }
  */
+
+
+    ///////////////////////////////////////////////////////////
+    
+
+    // name
+    const tdName = document.createElement('td')
+    tr.appendChild(tdName)
+    tdName.setAttribute('id', 'productNamePanier')
+    tdName.innerHTML = lsElement.name
+
+    // quantity
+    const tdQuantite = document.createElement('td')
+    tr.appendChild(tdQuantite)
+    tdQuantite.setAttribute('id', 'productQuantityPanier')
+    tdQuantite.innerHTML = lsElement.quantity
+
+    // price 
+    const tdPrice = document.createElement('td')
+    tr.appendChild(tdPrice)
+    tdPrice.setAttribute('id', 'productPricePanier')
+    tdPrice.innerHTML = lsElement.price * lsElement.quantity + " $"
+
+
+//////////////////////////////////////////////////////////////////////////////////////
+
+async function getProducts() {
+     let productIds = [];
+ 
+     const data = await fetch(urlBase + 'cameras').then(response => response.json())
+     
+     // mise dans le tableau des ids des produits
+     for (i = 0; i < data.length; i++)
+         productIds.push(data[i]._id)
+ 
+     return productIds;
+ }
+ 
+ fetch(urlBase + 'cameras')
+     .then(response => response.json())
+     .then(data => {
+         // mise dans le tableau des ids des produits
+         for (i = 0; i < data.length; i++) {
+             tabProduct.push(data[i]._id)
+         }
+     })
+ 

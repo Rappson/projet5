@@ -1,46 +1,3 @@
-fetch(urlBase + 'cameras')
-    .then(response => response.json())
-    .then(data => {
-        // mise dans le tableau des ids des produits
-        for (i = 0; i < data.length; i++) {
-            tabProduct.push(data[i]._id)
-        }
-    })
-
-
-    for (i = 0; i < panier.length; i++) {
-        panier[i].addEventListener('click', function () {
-
-            fetch(urlBase + 'cameras/' + getProductId)
-                .then(response => response.json())
-                .then(data => {
-                    const lenseChoose = document.querySelector('.active-user-choose')
-
-                    let myKey = data._id;
-                    data.quantity = 1;
-                    let cacahuete = JSON.parse(localStorage.getItem(myKey))
-                    localStorage.setItem(myKey, JSON.stringify(data));
-
-
-                    if (lenseChoose == null) {
-                        alert('Aucunes lentilles selectionnées');
-                        localStorage.removeItem(myKey)
-                    } else {
-                        cacahuete.lenses = JSON.stringify(tabLense)
-                    }
-
-
-                    if (cacahuete.quantity > 0) {
-                        cacahuete.quantity = cacahuete.quantity + 1;
-                        localStorage.setItem(myKey, JSON.stringify(cacahuete));
-
-                    } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
-                        cacahuete.quantity = 1;
-                    }
-
-                })
-        })
-    }
 
     // mise en place de l'affichage des produits dans le panier
     if (localStorage.length === 0) {
@@ -70,12 +27,6 @@ fetch(urlBase + 'cameras')
             let lsElement = JSON.parse(localStorage.getItem(myKeys));
 
 
-
-            let a = 0;
-            if (lsElement != tabProduct[a]) {
-                a = a + 1
-            }
-
             // affichage du panier
             const table = document.querySelector('table');
             const tbody = document.createElement('tbody')
@@ -90,23 +41,24 @@ fetch(urlBase + 'cameras')
             th.setAttribute("id", "numero")
             th.innerHTML = i + 1
 
+            const lsName = lsElement.name;
+            const lsQuantity = lsElement.quantity;
+            const lsPrice = lsElement.price * lsElement.quantity + ' $'
+
+            function appendTabElement (tabElementId, inner){
+                let td = document.createElement('td')
+                tr.appendChild(td)
+                td.setAttribute('id', tabElementId)
+                td.innerHTML = inner
+            }
             // name
-            const tdName = document.createElement('td')
-            tr.appendChild(tdName)
-            tdName.setAttribute('id', 'productNamePanier')
-            tdName.innerHTML = lsElement.name
+            appendTabElement('productNamePanier', lsName);
 
             // quantity
-            const tdQuantite = document.createElement('td')
-            tr.appendChild(tdQuantite)
-            tdQuantite.setAttribute('id', 'productQuantityPanier')
-            tdQuantite.innerHTML = lsElement.quantity
+            appendTabElement('productQuantityPanier', lsQuantity);
 
-            // price 
-            const tdPrice = document.createElement('td')
-            tr.appendChild(tdPrice)
-            tdPrice.setAttribute('id', 'productPricePanier')
-            tdPrice.innerHTML = lsElement.price * lsElement.quantity + " $"
+            // price
+            appendTabElement('productPricePanier', lsPrice)
 
             // cancel button
             const cancelBtn = document.createElement('button')
