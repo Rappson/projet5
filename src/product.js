@@ -41,8 +41,8 @@ function productFocused() {
 productFocused()
 
 
-for (i = 0; i < panier.length; i++) {
-    panier[i].addEventListener('click', function () {
+for (i = 0; i < addToPanier.length; i++) {
+    addToPanier[i].addEventListener('click', function () {
 
         fetch(urlBase + 'cameras/' + getProductId)
             .then(response => response.json())

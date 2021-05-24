@@ -11,7 +11,7 @@ const imgLinks = document.querySelectorAll("div.card > a");
 
 
 /////// Panier.js ///////
-const panier = document.querySelectorAll('.add-to-panier');
+const addToPanier = document.querySelectorAll('.add-to-panier');
 // Pour le button de commande
 const submitButton = document.querySelector('.buy');
 const submitLink = document.querySelector('#submitBtn')
