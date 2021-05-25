@@ -1,3 +1,4 @@
+function getDataToMain(){
 fetch(urlBase + "cameras")
     .then(response => response.json())
     .then(data => {
@@ -44,3 +45,5 @@ fetch(urlBase + "cameras")
         }
 
     })
+}
+getDataToMain()

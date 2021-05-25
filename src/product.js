@@ -40,36 +40,39 @@ function productFocused() {
 }
 productFocused()
 
+function putProductOnCart() {
+    for (i = 0; i < addToPanierSelector.length; i++) {
+        addToPanierSelector[i].addEventListener('click', function () {
 
-for (i = 0; i < addToPanier.length; i++) {
-    addToPanier[i].addEventListener('click', function () {
+            fetch(urlBase + 'cameras/' + getProductId)
+                .then(response => response.json())
+                .then(data => {
 
-        fetch(urlBase + 'cameras/' + getProductId)
-            .then(response => response.json())
-            .then(data => {
-                const lenseChoose = document.querySelector('.active-user-choose')
-
-                let myKey = data._id;
-                data.quantity = 1;
-                let cacahuete = JSON.parse(localStorage.getItem(myKey))
-                localStorage.setItem(myKey, JSON.stringify(data));
-
-
-                if (lenseChoose == null) {
-                    alert('Aucunes lentilles selectionnées');
-                    localStorage.removeItem(myKey)
-                } else {
-                    cacahuete.lenses = JSON.stringify(tabLense)
-                }
+                    let myKey = data._id;
+                    data.quantity = 1;
+                    let cacahuete = JSON.parse(localStorage.getItem(myKey))
+                    localStorage.setItem(myKey, JSON.stringify(data));
 
 
-                if (cacahuete.quantity > 0) {
-                    cacahuete.quantity = cacahuete.quantity + 1;
-                    localStorage.setItem(myKey, JSON.stringify(cacahuete));
+                    if (cacahuete.quantity > 0) {
+                        cacahuete.quantity = cacahuete.quantity + 1;
+                        localStorage.setItem(myKey, JSON.stringify(cacahuete));
 
-                } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
-                    cacahuete.quantity = 1;
-                }
-            })
-    })
+                    } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
+                        cacahuete.quantity = 1;
+                    }
+                    const lenseChoose = document.querySelector('.active-user-choose')
+
+                    if (lenseChoose == null) {
+                        alert('Aucunes lentilles selectionnées');
+                        localStorage.removeItem(myKey)
+                    } else {
+                        cacahuete.lenses = JSON.stringify(tabLense)
+                    }
+                })
+        })
+
+
+    }
 }
+putProductOnCart()
