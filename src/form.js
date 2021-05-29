@@ -34,15 +34,23 @@ function form(form, e) {
                let congrat = document.querySelector('#order-congrat')
                if (congrat.classList.contains("disabled")) {
                     congrat.classList.replace('disabled', 'congrat-active')
+
+                    // mise en place du total dans le menu de remerciement
                     let totalOrder = document.createElement('p')
                     let sumOrder = 0;
-                    console.log(totalTab);
-                    /* for (i = 0; i < localStorage.length; i++){
-                         sumOrder = localStorage.
-                    } */
+                    for (i = 0; i < localStorage.length; i++){
+                         let lstarget = localStorage.key(i)
+                         let targetJson = JSON.parse(localStorage.getItem(lstarget))
+                         let elementTotal = targetJson.price * targetJson.quantity
+                         sumOrder = sumOrder + elementTotal
+                    }
+                    congrat.appendChild(totalOrder)
+                    totalOrder.innerHTML = `Total: ${sumOrder} $`
+                    totalOrder.classList.add('congrat-content')
+
                     let orderIdCongrat = document.createElement('a')
                     orderIdCongrat.classList.add('congrat-content')
-                    orderIdCongrat.setAttribute('href', `targetOrder.html?orderId=${data.orderId}`)
+                    orderIdCongrat.setAttribute('href', `#`)
                     congrat.appendChild(orderIdCongrat)
                     orderIdCongrat.innerHTML = 'Numéro de commande : ' + data.orderId
 
