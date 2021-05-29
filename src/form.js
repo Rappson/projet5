@@ -46,7 +46,7 @@ function form(form, e) {
                     }
                     congrat.appendChild(totalOrder)
                     totalOrder.innerHTML = `Total: ${sumOrder} $`
-                    totalOrder.classList.add('congrat-content')
+                    totalOrder.classList.add('congrat-content', 'h3')
 
                     let orderIdCongrat = document.createElement('a')
                     orderIdCongrat.classList.add('congrat-content')
