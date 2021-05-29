@@ -26,6 +26,7 @@ function form(form, e) {
           method: 'POST',
           body: JSON.stringify(order)
      }
+     
      // post data fetch 
      fetch(urlBase + "cameras/" + "order", init)
           .then(Response => Response.json())
@@ -38,7 +39,7 @@ function form(form, e) {
                     // mise en place du total dans le menu de remerciement
                     let totalOrder = document.createElement('p')
                     let sumOrder = 0;
-                    for (i = 0; i < localStorage.length; i++){
+                    for (i = 0; i < localStorage.length; i++) {
                          let lstarget = localStorage.key(i)
                          let targetJson = JSON.parse(localStorage.getItem(lstarget))
                          let elementTotal = targetJson.price * targetJson.quantity

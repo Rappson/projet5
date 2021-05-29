@@ -50,9 +50,17 @@ function putProductOnCart() {
 
                     let myKey = data._id;
                     data.quantity = 1;
+                    data.selectedLenses = null
                     let cacahuete = JSON.parse(localStorage.getItem(myKey))
                     localStorage.setItem(myKey, JSON.stringify(data));
-
+                    
+                    const lenseChoose = document.querySelector('.active-user-choose')
+                    if (lenseChoose == null) {
+                        alert('Aucunes lentilles selectionnées');
+                        localStorage.removeItem(myKey)
+                    } else {
+                        cacahuete.selectedLenses = JSON.stringify(tabLense)
+                    }
 
                     if (cacahuete.quantity > 0) {
                         cacahuete.quantity = cacahuete.quantity + 1;
@@ -61,14 +69,8 @@ function putProductOnCart() {
                     } else if (cacahuete.quantity == 0 || cacahuete.quantity == null) {
                         cacahuete.quantity = 1;
                     }
-                    const lenseChoose = document.querySelector('.active-user-choose')
 
-                    if (lenseChoose == null) {
-                        alert('Aucunes lentilles selectionnées');
-                        localStorage.removeItem(myKey)
-                    } else {
-                        cacahuete.lenses = JSON.stringify(tabLense)
-                    }
+
                 })
         })
 
