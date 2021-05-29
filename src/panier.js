@@ -35,7 +35,7 @@ function putproductOnTab(){
         const tr = document.createElement('tr')
         tbody.appendChild(tr)
 
-        const lsName = lsElement.name;
+        const lsName = lsElement.name + lsElement.selectedLenses;
         const lsQuantity = lsElement.quantity;
         const lsPrice = lsElement.price * lsElement.quantity + ' $'
 
