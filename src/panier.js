@@ -1,4 +1,4 @@
-let cartEmpty = function (){
+let cartEmpty = function () {
     // si il n'y a aucun produit dans le panier
     const empty = document.querySelector('#empty')
     const titleEmpty = document.createElement('h3')
@@ -10,7 +10,7 @@ let cartEmpty = function (){
 }
 
 
-function putproductOnTab(){
+function putproductOnTab() {
     // si il y a des produits dans le panier
     let totalTab = [];
     let sum = 0;
@@ -39,7 +39,7 @@ function putproductOnTab(){
         const lsQuantity = lsElement.quantity;
         const lsPrice = lsElement.price * lsElement.quantity + ' $'
 
-        function appendTabElement (element, tabElementId, inner){
+        function appendTabElement(element, tabElementId, inner) {
             let td = document.createElement(element)
             tr.appendChild(td)
             td.setAttribute('id', tabElementId)
@@ -52,10 +52,10 @@ function putproductOnTab(){
         appendTabElement('td', 'productNamePanier', lsName);
 
         // quantity
-        appendTabElement('td','productQuantityPanier', lsQuantity);
+        appendTabElement('td', 'productQuantityPanier', lsQuantity);
 
         // price
-        appendTabElement('td','productPricePanier', lsPrice)
+        appendTabElement('td', 'productPricePanier', lsPrice)
 
         // cancel button
         const cancelBtn = document.createElement('button')
@@ -83,10 +83,10 @@ function putproductOnTab(){
 }
 
 
-    // mise en place de l'affichage des produits dans le panier
-    if (localStorage.length === 0) {
-        cartEmpty()
-    } else {
-        putproductOnTab()
-    }
+// mise en place de l'affichage des produits dans le panier
+if (localStorage.length === 0) {
+    cartEmpty()
+} else {
+    putproductOnTab()
+}
 

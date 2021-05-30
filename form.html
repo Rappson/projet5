@@ -57,7 +57,7 @@
         </div>
     </nav>
 
-<br>
+    <br>
 
     <!-- debut du formulaire de commande -->
     <form class="col" onsubmit="form(this, event)">
@@ -65,12 +65,14 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputLastName">Nom</label>
-                <input type="text" class="form-control" pattern="[a-zA-Z]+" title="format incorrect" name="lastName" id="inputLastName" placeholder="Nom" autofocus required />
+                <input type="text" class="form-control" pattern="[a-zA-Z]+" title="format incorrect" name="lastName"
+                    id="inputLastName" placeholder="Nom" autofocus required />
             </div>
 
             <div class="form-group col-md-6">
                 <label for="firstName">Prénom</label>
-                <input type="text" pattern="[a-zA-Z]+" name="firstName" title="format incorrect" class="form-control" id="firstName" placeholder="Prénom" required>
+                <input type="text" pattern="[a-zA-Z]+" name="firstName" title="format incorrect" class="form-control"
+                    id="firstName" placeholder="Prénom" required>
             </div>
         </div>
 
@@ -117,14 +119,17 @@
     </form>
     <br>
     <div id="order-congrat" class="disabled">
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">
-            <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
-            <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
-          </svg>
-    
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-check2-circle"
+            viewBox="0 0 16 16">
+            <path
+                d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
+            <path
+                d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
+        </svg>
+
         <br>
-          <p class="congrat-content">Commande confirmé ! merci et à bientôt</p> <br>
-        </div>
+        <p class="congrat-content">Commande confirmé ! merci et à bientôt</p> <br>
+    </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
