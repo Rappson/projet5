@@ -27,6 +27,10 @@ function form(form, e) {
           body: JSON.stringify(order)
      }
 
+     postDataCongrat(init)
+}
+
+function postDataCongrat (init){
      // post data fetch 
      fetch(urlBase + "cameras/" + "order", init)
           .then(Response => Response.json())
@@ -64,4 +68,3 @@ function form(form, e) {
                localStorage.clear()
           })
 }
-

@@ -38,7 +38,6 @@ function productFocused() {
             })
     }
 }
-productFocused()
 
 function putProductOnCart() {
     for (i = 0; i < addToPanierSelector.length; i++) {
@@ -72,4 +71,6 @@ function putProductOnCart() {
         })
     }
 }
+
+productFocused()
 putProductOnCart()
