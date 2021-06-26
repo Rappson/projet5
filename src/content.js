@@ -30,7 +30,7 @@ const productImg = document.querySelector('#product_img');
 const productTitle = document.querySelector('#name_product');
 const productDescription = document.querySelector('#description_product');
 const productPrice = document.querySelector('#price_content');
-const productLense = document.querySelector('div.lense');
+
 
 
 // on recupere l'url en entier

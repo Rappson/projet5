@@ -1,19 +1,42 @@
 function productFocused() {
     if (searchParams.has('id')) {
-
+        console.log(getProductId);
+        
         fetch(urlBase + 'cameras/' + getProductId)
             .then(response => response.json())
             .then(data => {
+                console.log(data);
+                let containerProduct = document.querySelector('.container-product')
+                
+                if (data.imageUrl == undefined ||
+                    data.name == undefined ||
+                    data.price == undefined){
+                        let errorProduct = document.createElement('p');
+                        let linkToMain = document.createElement('a');
+                        errorProduct.innerHTML = "une erreur est survenue ! Merci de retourner à l'accueil";
+                        linkToMain.innerHTML = "Cliquez ici pour retourner à l'accueil";
+                        linkToMain.setAttribute('href', 'index.html');
 
-                // incorporation des infos
-                productImg.setAttribute('src', data.imageUrl);
-                productTitle.innerHTML = data.name;
-                productDescription.innerHTML = data.description;
-                productPrice.innerHTML = data.price + " $";
+                        containerProduct.appendChild(errorProduct)
+                        containerProduct.appendChild(linkToMain)
+                }else{
+                    containerProduct.innerHTML = `
+                <img src="${data.imageUrl}" alt="" id="product_img" width="70%">
+                <!-- infos -->
+                <h1 id="name_product">${data.name}</h1>
+                <p id="description_product">${data.description}</p>
+                <p id="price_content"><span id="price_product">${data.price} $</span></p>
+                <!-- lenses -->
+                <div class="list-group lense lenses-container">
+        
+                </div>
+                <button type="submit" class="btn btn-outline-primary btn-rounded add-to-panier">Ajouter au panier</button>`
+                
 
                 // incorporation des lentilles
                 for (var i = 0; i < data.lenses.length; i++) {
                     // création des liens de personnalisation
+                    const productLense = document.querySelector('div.lense');
                     let lenseBtn = document.createElement('a')
                     productLense.appendChild(lenseBtn)
                     lenseBtn.setAttribute('class', 'list-group-item list-group-item-action');
@@ -34,6 +57,7 @@ function productFocused() {
 
                         }
                     })
+                }
                 }
             })
     }
