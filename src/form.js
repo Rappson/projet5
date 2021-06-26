@@ -26,17 +26,23 @@ function form(form, e) {
           method: 'POST',
           body: JSON.stringify(order)
      }
+    
+          postDataCongrat(init)
 
-     postDataCongrat(init)
 }
 
-function postDataCongrat (init){
+function postDataCongrat(init) {
+     let congrat = document.querySelector('#order-congrat')
+
+
      // post data fetch 
-     fetch(urlBase + "cameras/" + "order", init)
+     
+     if (localStorage.length > 0){
+          fetch(urlBase + "cameras/" + "order", init)
           .then(Response => Response.json())
           .then(data => {
+
                // target de la div de remerciement
-               let congrat = document.querySelector('#order-congrat')
 
                function congratulationMessage() {
                     if (congrat.classList.contains("disabled")) {
@@ -66,5 +72,22 @@ function postDataCongrat (init){
                congratulationMessage();
 
                localStorage.clear()
+
           })
+     }else{
+          let form = document.querySelector('.user-tab');
+          let answerError = document.createElement('p');
+          answerError.innerHTML = `Une erreur est survenue ! Veuillez retourner à la page d'accueil`;
+          answerError.setAttribute('style', 'color: red');
+
+          let linkToMain = document.createElement('a');
+          linkToMain.setAttribute('href', 'index.html');
+          linkToMain.innerHTML =  `Cliquez ici pour retourner à l'accueil`;
+          linkToMain.setAttribute('style', 'color: red; font-weight: bold')
+
+          form.appendChild(answerError);
+          form.appendChild(linkToMain);
+
+
+     }
 }
