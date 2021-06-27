@@ -30,6 +30,7 @@ function productFocused() {
                 <div class="list-group lense lenses-container">
         
                 </div>`;
+                
                     
 
 
@@ -68,14 +69,11 @@ function putProductOnCart() {
     let btnAddToCart = document.createElement('button');
     btnAddToCart.setAttribute('type', 'submit');
     btnAddToCart.setAttribute('class', 'btn btn-outline-primary btn-rounded add-to-panier');
-    btnAddToCart.innerHTML = 'Ajouter au panier'
+    btnAddToCart.innerHTML = 'Ajouter au panier';
     containerBtn.appendChild(btnAddToCart);
 
-
-    for (i = 0; i < addToPanierSelector.length; i++) {
-        addToPanierSelector[i].addEventListener('click', function () {
-
-            fetch(urlBase + 'cameras/' + getProductId)
+btnAddToCart.addEventListener('click', () => {
+    fetch(urlBase + 'cameras/' + getProductId)
                 .then(response => response.json())
                 .then(data => {
 
@@ -100,9 +98,9 @@ function putProductOnCart() {
 
                     }
                 })
-        })
-    }
+})
+    
 }
 
-productFocused()
-putProductOnCart()
+productFocused();
+putProductOnCart();
